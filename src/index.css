@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  height: 120vh; /* fill viewport */
+  height: 100vh; /* fill viewport */
   display: flex; /* use flex to center content vertically & horizontally */
   flex-direction: column;
   align-items: center;
