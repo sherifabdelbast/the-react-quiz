@@ -18,15 +18,22 @@
 
 html {
   font-size: 62.5%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body {
-  min-height: 100vh;
+  height: 120vh; /* fill viewport */
+  display: flex; /* use flex to center content vertically & horizontally */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   color: var(--color-light);
   background-color: var(--color-darkest);
   padding: 3.2rem;
+  overflow-x: hidden; /* prevent horizontal scroll */
+  overflow-y: auto; /* scroll only if content exceeds viewport */
 }
 
 .app {
@@ -34,14 +41,18 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  max-width: 70rem; /* prevents content from being too wide */
 }
 
 .main {
-  width: 50rem;
+  width: 100%;
+  max-width: 50rem; /* keeps layout contained */
 }
 
 .app-header {
-  width: 66rem;
+  width: 100%;
+  max-width: 66rem;
   margin-bottom: 4rem;
   display: flex;
   align-items: center;
@@ -199,7 +210,6 @@ progress {
   align-items: center;
   margin-top: 4rem;
   gap: 1.6rem;
-
   color: var(--color-medium);
   font-size: 1.4rem;
 }
@@ -213,12 +223,12 @@ progress {
   border-radius: 100px;
 }
 
-/* CREDIT: https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje */
+/* Loader animation */
 .loader {
   width: 50px;
   height: 24px;
-  background: radial-gradient(circle closest-side, currentColor 90%, #0000) 0%
-      50%,
+  background:
+    radial-gradient(circle closest-side, currentColor 90%, #0000) 0% 50%,
     radial-gradient(circle closest-side, currentColor 90%, #0000) 50% 50%,
     radial-gradient(circle closest-side, currentColor 90%, #0000) 100% 50%;
   background-size: calc(100% / 3) 12px;
@@ -228,21 +238,32 @@ progress {
 
 @keyframes loader {
   20% {
-    background-position: 0% 0%, 50% 50%, 100% 50%;
+    background-position:
+      0% 0%,
+      50% 50%,
+      100% 50%;
   }
   40% {
-    background-position: 0% 100%, 50% 0%, 100% 50%;
+    background-position:
+      0% 100%,
+      50% 0%,
+      100% 50%;
   }
   60% {
-    background-position: 0% 50%, 50% 100%, 100% 0%;
+    background-position:
+      0% 50%,
+      50% 100%,
+      100% 0%;
   }
   80% {
-    background-position: 0% 50%, 50% 50%, 100% 100%;
+    background-position:
+      0% 50%,
+      50% 50%,
+      100% 100%;
   }
 }
 
-/* ********** */
-/* First counter example */
+/* Counter example */
 .counter {
   display: flex;
   flex-direction: column;
@@ -250,10 +271,23 @@ progress {
   gap: 1rem;
   font-size: 2rem;
   font-weight: bold;
-  margin: 6rem;
+  margin: 2rem; /* reduced to avoid vertical scroll */
 }
 
 .counter * {
   font-size: inherit;
   padding: 0.8rem;
+}
+
+/* Responsive tweaks */
+@media (max-height: 600px) {
+  body {
+    padding: 1.5rem;
+  }
+  .counter {
+    margin: 1rem;
+  }
+  img {
+    width: 2rem;
+  }
 }
