@@ -28,7 +28,7 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "dataReceived":
-      return { ...state, questions: action.payload, status: "ready" };
+      return { ...state, questions: action.payload.questions, status: "ready" };
 
     case "dataFailed":
       return { ...state, status: "error" };
@@ -83,7 +83,7 @@ export default function App() {
   );
 
   useEffect(function () {
-    fetch("questions.json")
+    fetch("/questions.json")
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch((err) => dispatch({ type: "dataFailed" }));

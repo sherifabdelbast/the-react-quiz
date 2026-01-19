@@ -271,7 +271,7 @@ progress {
   gap: 1rem;
   font-size: 2rem;
   font-weight: bold;
-  margin: 2rem; /* reduced to avoid vertical scroll */
+  margin: 2rem;
 }
 
 .counter * {
@@ -279,7 +279,6 @@ progress {
   padding: 0.8rem;
 }
 
-/* Responsive tweaks */
 @media (max-height: 600px) {
   body {
     padding: 1.5rem;
@@ -288,6 +287,34 @@ progress {
     margin: 1rem;
   }
   img {
-    width: 2rem;
+    width: 8rem;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  img {
+    width: 10rem;
+  }
+  h1 {
+    font-size: 4.2rem;
+  }
+  h2 {
+    font-size: 2.8rem;
+  }
+  .btn {
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  img {
+    width: 8rem;
+  }
+  h1 {
+    font-size: 3.6rem;
   }
 }
