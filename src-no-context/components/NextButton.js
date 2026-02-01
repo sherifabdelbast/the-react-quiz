@@ -1,7 +1,4 @@
-import { useQuiz } from "../contexts/QuizContext";
-
-function NextButton() {
-  const { dispatch, answer, index, numQuestions } = useQuiz();
+function NextButton({ dispatch, answer, index, numQuestions }) {
   //early return means this component won't render
   if (answer === null) return;
   if (index < numQuestions - 1) {
